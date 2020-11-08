@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Vicharan",
+    "slug": "Vicharan",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/appIcon.png",
+    "splash": {
+      "image": "./assets/splash.jpg",
+      "resizeMode": "cover"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
