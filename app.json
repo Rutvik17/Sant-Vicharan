@@ -12,7 +12,7 @@
     "orientation": "portrait",
     "icon": "./assets/appIcon.png",
     "splash": {
-      "image": "./assets/splash.jpg",
+      "image": "./assets/splash.png",
       "resizeMode": "cover"
     },
     "updates": {
@@ -22,7 +22,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.FrontendKeshav.Vicharan",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.FrontendKeshav.Vicharan",
+      "versionCode": 1
     }
   }
 }
