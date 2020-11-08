@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import * as firebase from 'firebase';
 import firebaseConfig from './FirebaseConfig';
-import {AppLoading, SplashScreen} from 'expo';
+import {AppLoading} from 'expo';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import allReducers from "./Redux/Reducers/Index";
@@ -16,6 +16,7 @@ import * as Font from 'expo-font';
 import SignOutStack from "./Navigation/SignOutStack";
 import AuthNavigator, {AuthContext} from "./Navigation/AuthNavigator";
 import SignInStack from "./Navigation/SignInStack";
+import * as SplashScreen from 'expo-splash-screen';
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -37,7 +38,7 @@ async function loadFonts(fonts) {
 export default function App() {
     const [appReady, setAppReady] = useState(false);
 
-    SplashScreen.preventAutoHide();
+    SplashScreen.preventAutoHideAsync();
 
     const store = createStore(
         allReducers,
@@ -67,7 +68,7 @@ export default function App() {
     };
 
     Promise.all([cacheImages(images), loadFonts(fonts)]).then(() => {
-        SplashScreen.hide();
+        SplashScreen.hideAsync();
         setAppReady(true);
     });
 

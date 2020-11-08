@@ -15,7 +15,7 @@ import {connect} from "react-redux";
 import * as firebase from "firebase";
 import {sadhuIds} from "../Utils/utils";
 import Colors from "../Components/Colors";
-import { Dropdown } from 'react-native-material-dropdown';
+import { Dropdown } from 'react-native-material-dropdown-v2';
 import VicharanCard from "../Components/VicharanCard";
 
 interface Props {
