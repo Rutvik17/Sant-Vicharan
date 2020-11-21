@@ -29,6 +29,8 @@
     "android": {
       "package": "com.FrontendKeshav.Vicharan",
       "versionCode": 1
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/Rutvik17/Sant-Vicharan"
   }
 }

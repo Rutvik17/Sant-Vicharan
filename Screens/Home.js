@@ -76,13 +76,14 @@ class Home extends Component<Props, State> {
             for (let name of sadhus) {
                 name = sadhuIds[name]?.name;
                 a[name] = {
-                    location: currentTime < 9 ? details?.vicharanDetails?.breakfast
-                        : currentTime < 13 ? details?.vicharanDetails?.lunch
-                        : currentTime < 21 ? details?.vicharanDetails?.sabha
-                        : currentTime < 22 ? details?.vicharanDetails?.night
+                    location: (currentTime < 9) && !(currentTime > 13) ? details?.vicharanDetails?.breakfast
+                        : (currentTime < 13) && !(currentTime > 21) ? details?.vicharanDetails?.lunch
+                        : (currentTime < 21) && !(currentTime > 22) ? details?.vicharanDetails?.sabha
+                        : currentTime >= 22 ? details?.vicharanDetails?.night
                         : 'Nairobi'
                 };
             }
+            console.log(a);
             this.setState({
                 location: a
             })
@@ -182,7 +183,7 @@ class Home extends Component<Props, State> {
         if (this.props.user && !this.props.user.displayName) {
             return (
                 <KeyboardAvoidingView
-                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    behavior={Platform.OS === "ios" ? "padding" : "padding"}
                     style={{flex: 1}}
                     enabled={true}
                 >
@@ -216,45 +217,47 @@ class Home extends Component<Props, State> {
             let sadhuView = this.state.sadhu.map((sadhu, index) => {
                     let image = this.matchImages(sadhu);
                     return (
-                        <TouchableOpacity onPress={() => this.onSwamiClick(sadhu)} key={index+3}>
-                            <View
-                                key={index}
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center'
-                                }}
-                            >
-                                <View>
-                                    <View style={{ height: 100, width: 100, margin: 10 }} key={index+1}>
-                                        <Image source={image} // Use item to set the image source
-                                               key={index+2}
-                                               style={{
-                                                   flex: 1,
-                                                   width:100,
-                                                   height:100,
-                                                   resizeMode:'cover',
-                                                   borderRadius: 50,
-                                                   padding: 10
-                                               }}
-                                        />
-                                    </View>
+                        <View style={{flexGrow: 1}}>
+                            <TouchableOpacity onPress={() => this.onSwamiClick(sadhu)} key={index+3}>
+                                <View
+                                    key={index}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center'
+                                    }}
+                                >
                                     <View>
-                                        <Text style={{
-                                            flexDirection: 'row',
-                                            alignSelf: 'center',
-                                            paddingVertical: 5,
-                                            fontSize: 18
-                                        }}>
-                                            {
-                                                this.state.location &&
-                                                this.state.location[sadhu.displayName] ?
-                                                this.state.location[sadhu.displayName].location : 'Nairobi'
-                                            }
-                                        </Text>
+                                        <View style={{ height: 100, width: 100, margin: 10 }} key={index+1}>
+                                            <Image source={image} // Use item to set the image source
+                                                   key={index+2}
+                                                   style={{
+                                                       flex: 1,
+                                                       width:100,
+                                                       height:100,
+                                                       resizeMode:'cover',
+                                                       borderRadius: 50,
+                                                       padding: 10
+                                                   }}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={{
+                                                flexDirection: 'row',
+                                                alignSelf: 'center',
+                                                paddingVertical: 5,
+                                                fontSize: 18
+                                            }}>
+                                                {
+                                                    this.state.location &&
+                                                    this.state.location[sadhu.displayName] ?
+                                                        this.state.location[sadhu.displayName].location : 'Nairobi'
+                                                }
+                                            </Text>
+                                        </View>
                                     </View>
                                 </View>
-                            </View>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
+                        </View>
                     );
                 });
 
@@ -283,7 +286,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.white,
-        marginTop: StatusBar.currentHeight || 0,
     },
     textInput: {
         height: 50,

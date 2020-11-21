@@ -273,7 +273,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.white,
-        marginTop: StatusBar.currentHeight || 0,
         justifyContent: 'flex-start'
     },
     text: {

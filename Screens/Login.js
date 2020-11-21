@@ -331,7 +331,7 @@ class Login extends Component<Props> {
                                     placeholderTextColor={Colors.black}
                                 />
                             </View>
-                            {this.state.buttonName === 'login' && (<TouchableOpacity style={styles.button} onPress={this.onLoginPress}>
+                            <TouchableOpacity style={styles.button} onPress={this.onLoginPress}>
                                 <Animated.View>
                                     <Text style={{
                                         ...styles.buttonText,
@@ -340,17 +340,7 @@ class Login extends Component<Props> {
                                         Login
                                     </Text>
                                 </Animated.View>
-                            </TouchableOpacity>)}
-                            {this.state.buttonName === 'signUp' && (<TouchableOpacity style={styles.button} onPress={this.onSignUpPress}>
-                                <Animated.View>
-                                    <Text style={{
-                                        ...styles.buttonText,
-                                        marginVertical: 10
-                                    }}>
-                                        Sign Up
-                                    </Text>
-                                </Animated.View>
-                            </TouchableOpacity>)}
+                            </TouchableOpacity>
                         </Animated.View>
                     </Animated.View>
                 </ScrollView>
