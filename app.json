@@ -8,7 +8,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/appIcon.png",
     "splash": {
@@ -24,11 +24,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.FrontendKeshav.Vicharan",
-      "buildNumber": "1.0.0"
+      "buildNumber": "2.0.0"
     },
     "android": {
       "package": "com.FrontendKeshav.Vicharan",
-      "versionCode": 1
+      "versionCode": 2
     },
     "description": "",
     "githubUrl": "https://github.com/Rutvik17/Sant-Vicharan"
